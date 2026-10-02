@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Biosignature AI builds secure AI tools and services for biotech and life sciences teams operating in regulated environments." />
+    <title>Biosignature AI</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #08111f;
+        --bg-accent: #0d1b31;
+        --card: rgba(255, 255, 255, 0.06);
+        --card-border: rgba(255, 255, 255, 0.12);
+        --text: #eef4ff;
+        --muted: #b7c4da;
+        --accent: #6fd3ff;
+        --accent-2: #8ef0c7;
+        --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+        --radius: 24px;
+        --max-width: 1120px;
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(111, 211, 255, 0.16), transparent 34%),
+          radial-gradient(circle at top right, rgba(142, 240, 199, 0.12), transparent 28%),
+          linear-gradient(180deg, var(--bg) 0%, #060b14 100%);
+        color: var(--text);
+        line-height: 1.5;
+      }
+
+      a { color: inherit; text-decoration: none; }
+      .container {
+        width: min(100% - 32px, var(--max-width));
+        margin: 0 auto;
+      }
+
+      header {
+        padding: 28px 0 0;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 18px 22px;
+        border: 1px solid var(--card-border);
+        background: rgba(6, 11, 20, 0.72);
+        backdrop-filter: blur(18px);
+        border-radius: 999px;
+        box-shadow: var(--shadow);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+
+      .logo {
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+        box-shadow: 0 10px 30px rgba(111, 211, 255, 0.35);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 20px;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .nav-links a:hover { color: var(--text); }
+
+      .hero {
+        padding: 96px 0 54px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 28px;
+        align-items: center;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 14px;
+        border-radius: 999px;
+        border: 1px solid var(--card-border);
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--muted);
+        font-size: 0.9rem;
+        margin-bottom: 22px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(3rem, 7vw, 5.5rem);
+        line-height: 0.96;
+        letter-spacing: -0.04em;
+        max-width: 10ch;
+      }
+
+      .lead {
+        margin: 24px 0 0;
+        max-width: 60ch;
+        font-size: clamp(1.05rem, 2vw, 1.25rem);
+        color: var(--muted);
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 30px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 20px;
+        border-radius: 999px;
+        font-weight: 600;
+        border: 1px solid transparent;
+        transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      }
+
+      .button:hover { transform: translateY(-1px); }
+      .button.primary {
+        background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+        color: #04111c;
+      }
+      .button.secondary {
+        border-color: var(--card-border);
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--text);
+      }
+
+      .panel {
+        border: 1px solid var(--card-border);
+        border-radius: var(--radius);
+        background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+        padding: 28px;
+        box-shadow: var(--shadow);
+      }
+
+      .panel h2 {
+        margin: 0 0 10px;
+        font-size: 1.1rem;
+      }
+
+      .panel p, .panel li {
+        color: var(--muted);
+      }
+
+      .stats {
+        display: grid;
+        gap: 14px;
+        margin-top: 22px;
+      }
+
+      .stat {
+        padding: 16px 18px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .stat strong {
+        display: block;
+        color: var(--text);
+        font-size: 1.02rem;
+        margin-bottom: 4px;
+      }
+
+      .section {
+        padding: 28px 0 0;
+      }
+
+      .section-title {
+        margin: 0 0 16px;
+        font-size: 1.9rem;
+        letter-spacing: -0.03em;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+
+      .card {
+        padding: 24px;
+        border-radius: var(--radius);
+        border: 1px solid var(--card-border);
+        background: var(--card);
+      }
+
+      .card h3 {
+        margin: 0 0 10px;
+        font-size: 1.1rem;
+      }
+
+      .cta {
+        margin: 48px 0 64px;
+        padding: 34px;
+        border-radius: calc(var(--radius) + 8px);
+        border: 1px solid rgba(111, 211, 255, 0.18);
+        background: linear-gradient(135deg, rgba(111, 211, 255, 0.12), rgba(142, 240, 199, 0.08));
+      }
+
+      .cta h2 { margin: 0 0 10px; }
+      .cta p { margin: 0; color: var(--muted); max-width: 65ch; }
+
+      footer {
+        padding: 0 0 30px;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      @media (max-width: 900px) {
+        .hero-grid,
+        .cards {
+          grid-template-columns: 1fr;
+        }
+
+        .nav {
+          border-radius: 28px;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .nav-links {
+          flex-wrap: wrap;
+          gap: 14px 18px;
+        }
+
+        .hero {
+          padding-top: 64px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="container">
+      <nav class="nav" aria-label="Primary">
+        <div class="brand">
+          <div class="logo" aria-hidden="true"></div>
+          <span>Biosignature AI</span>
+        </div>
+        <div class="nav-links">
+          <a href="#platform">Platform</a>
+          <a href="#capabilities">Capabilities</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <div class="eyebrow">AI tools and services for biotech and life sciences</div>
+            <h1>Secure AI for regulated science.</h1>
+            <p class="lead">
+              Biosignature AI builds and deploys custom models and tools that help life sciences
+              teams move faster while maintaining control, privacy, and operational discipline in
+              regulated environments.
+            </p>
+            <div class="actions">
+              <a class="button primary" href="#contact">Get in touch</a>
+              <a class="button secondary" href="#capabilities">Explore capabilities</a>
+            </div>
+          </div>
+
+          <aside class="panel" aria-label="Company summary">
+            <h2>What we deliver</h2>
+            <p>
+              Practical AI systems designed for real-world biotech workflows, with deployment
+              flexibility across public or private environments.
+            </p>
+            <div class="stats">
+              <div class="stat">
+                <strong>Regulated-environment ready</strong>
+                <span>Designed for environments where control, auditability, and privacy matter.</span>
+              </div>
+              <div class="stat">
+                <strong>Deployment flexibility</strong>
+                <span>Run in public cloud or private infrastructure based on your requirements.</span>
+              </div>
+              <div class="stat">
+                <strong>Custom AI tools</strong>
+                <span>Purpose-built models and workflows tailored to biotech and life sciences needs.</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="platform" class="section container">
+        <h2 class="section-title">Built for modern biotech operations</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>Specialized workflows</h3>
+            <p>
+              We design AI tools for the realities of biotech and life sciences teams, from
+              analysis to automation to decision support.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Control and privacy</h3>
+            <p>
+              Our systems are built with strong privacy and operational control so you can align
+              deployment with internal governance requirements.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Flexible deployment</h3>
+            <p>
+              Deploy in public or private environments with an architecture that supports your
+              security and compliance posture.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="capabilities" class="section container">
+        <h2 class="section-title">Capabilities</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>Custom models</h3>
+            <p>Train and adapt models for domain-specific biotech and life sciences use cases.</p>
+          </article>
+          <article class="card">
+            <h3>Workflow tools</h3>
+            <p>Build reliable tools that support regulated operational processes end to end.</p>
+          </article>
+          <article class="card">
+            <h3>Deployment support</h3>
+            <p>Ship solutions into environments that match your security, privacy, and IT needs.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="container cta">
+        <h2>Let’s build secure AI for your team.</h2>
+        <p>
+          If you’re exploring AI for biotech or life sciences and need a partner that understands
+          regulated environments, get in touch to discuss your goals and deployment constraints.
+        </p>
+      </section>
+    </main>
+
+    <footer class="container">
+      © 2026 Biosignature AI. All rights reserved.
+    </footer>
+  </body>
+</html>
